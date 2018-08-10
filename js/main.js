@@ -142,7 +142,7 @@
         var images = imageWidget.querySelectorAll('.comparison-image');
         new ImageComparison({
           container: imageWidget,
-          startPosition: imageWidget.getAttribute('start-position'),
+          startPosition: imageWidget.getAttribute('data-start-position'),
           data: [
             {
               image: images[0]
