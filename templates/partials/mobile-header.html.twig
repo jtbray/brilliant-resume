@@ -1,0 +1,12 @@
+    <div class="mobile-header mobile-visible">
+      <div class="mobile-logo-container">
+{% if header.resume.sidebar.name %}
+        <div class="mobile-site-title">{{header.resume.sidebar.name}}</div>
+{% else %}
+        <div class="mobile-site-title">PLEASE UPDATE YOUR SETTINGS VIA ADMIN OR PAGE YAML</div>
+{% endif %}
+      </div>
+      <a class="menu-toggle mobile-visible">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>

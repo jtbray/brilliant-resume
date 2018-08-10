@@ -1,0 +1,149 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+<meta charset="utf-8"/>
+<title>{{ site.title|e('html') }}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% include 'partials/metadata.html.twig' %}
+<link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}"/>
+<link rel="canonical" href="{{ page.url(true, true) }}"/>
+{% block stylesheets %}
+{% do assets.addCss('theme://css/bootstrap.css', 97) %}
+{% do assets.addCss('theme://css/normalize.css', 96) %}
+{% do assets.addCss('theme://css/transition-animations.css', 95) %}
+{% do assets.addCss('theme://css/owl.carousel.css', 94) %}
+{% do assets.addCss('theme://css/magnific-popup.css', 93) %}
+{% do assets.addCss('theme://css/animate.css', 92) %}
+{% do assets.addCss('theme://css/main.css', 91) %}
+{% do assets.addCss('theme://css/macbook-iframe.css', 91) %}
+{% do assets.addCss('theme://css/ImageComparison.css', 90) %}
+{% do assets.addCss('theme://css/preloader.css', 89) %}
+{% do assets.addCss('https://use.fontawesome.com/releases/v5.1.1/css/all.css', 88) %}
+{% do assets.addCss('theme://css/sweetalert2.css', 87) %}
+{% do assets.addCss('theme://css/custom.css', 86) %}
+{% endblock %}
+{{ assets.css() }}{% if header.resume.general.bgcolor %}
+<style>
+  .block-title h3::after,
+  .section-title,
+  .site-main-menu li.active a::after,
+  input[type="submit"]:hover,
+  input[type="submit"]:focus,
+  input[type="button"]:focus,
+  button:hover,
+  button:focus,
+  a.button:hover,
+  a.button:focus,
+  .skill-percentage,
+  .dot1,
+  .dot2,
+  .testimonials.owl-carousel .owl-nav .owl-prev:hover,
+  .testimonials.owl-carousel .owl-nav .owl-next:hover,
+  .form-control + .form-control-border,
+  ul.social-links li a:hover,
+  .portfolio-filters li.active a,
+  .portfolio-filters li.active a:hover {
+    background-color: {{header.resume.general.bgcolor}}!important;
+  }
+  .ul.social-links li a:hover {
+    color: {{header.resume.general.bgcolor}}!important;
+  }
+  .section-title::after {
+    border-right: 10px solid{{header.resume.general.bgcolor}}!important;
+    filter: brightness(80%);
+  }
+  input[type="submit"],
+  input[type="button"],
+  button,
+  a.button,
+  .skill-container {
+    border: 2px solid{{header.resume.general.bgcolor}}!important;
+  }
+</style>
+{% endif %}
+{% if header.resume.general.secondarycolor %}
+<style>
+  .event-date {
+    background-color: {{header.resume.general.secondarycolor}}!important;
+  }
+  .event-date::after {
+    border-right: 5px solid{{header.resume.general.secondarycolor}}!important;
+    filter: brightness(80%);
+  }
+</style>
+{% endif %}
+{% if header.resume.general.styles %}
+<style>
+  {{ header.resume.general.styles }}
+</style>
+{% endif %}
+{% block javascripts %}
+{% do assets.addJs('jquery', 100) %}
+{% do assets.addJs('theme://js/modernizr.custom.js', 99) %}
+{% do assets.addJs('theme://js/bootstrap.min.js', {'priority': 98, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/page-transition.js', {'priority':97, 'group':'bottom'}) %}
+{% do assets.addJs('theme://js/imagesloaded.pkgd.min.js', {'priority': 96, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/validator.js', {'priority': 95, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/jquery.shuffle.min.js', {'priority': 94, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/masonry.pkgd.min.js', {'priority': 93, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/owl.carousel.min.js', {'priority': 92, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/jquery.magnific-popup.min.js', {'priority':91, 'group':'bottom'}) %}
+{% do assets.addJs('theme://js/jquery.hoverdir.js', {'priority': 90, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/typer.js', {'priority': 89, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/okshadow.js', {'priority': 88, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/ImageComparison.js', {'priority': 87, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/sweetalert2.all.js', {'priority': 86, 'group': 'bottom'}) %}
+{% do assets.addJs('theme://js/main.js', {'priority': 85, 'group': 'bottom'}) %}
+{% endblock %}
+{{ assets.js() }}{% endblock head %}
+</head>
+<body>
+{% include 'partials/preloader.html.twig' %}
+  <div id="page" class="page">
+  {% block header %}
+{% include 'partials/header.html.twig' %}
+{% include 'partials/mobile-header.html.twig' %}
+{% endblock %}
+    <div id="main" class="site-main">
+      <div class="pt-wrapper">
+        <div class="subpages">
+{% block body %}
+{% include 'partials/home.html.twig' %}
+{% include 'partials/about.html.twig' %}
+{% include 'partials/resume.html.twig' %}
+{% include 'partials/portfolio.html.twig' %}
+{% include 'partials/contact.html.twig' %}
+{% endblock %}
+        </div>
+      </div>
+    </div>
+{% include 'partials/ajax-page.html.twig' %}
+  </div>
+{{ assets.js('bottom') }}{% if header.resume.general.mautic_url %}
+<script>
+  (function(w, d, t, u, n, a, m) {
+    w['MauticTrackingObject'] = n;
+    w[n] = w[n] || function() {
+      (w[n].q = w[n].q || []).push(arguments)
+      },
+    a = d.createElement(t),
+    m = d.getElementsByTagName(t)[0];
+    a.async = 1;
+    a.src = u;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '{{header.resume.general.mautic_url}}/mtc.js', 'mt');
+  mt('send', 'pageview');
+</script>
+{% if header.resume.general.mautic_focus_items | length %}
+{% for item in header.resume.general.mautic_focus_items %}
+<script src="{{header.resume.general.mautic_url}}/focus/{{item.focus_id}}.js" async="async"></script>
+{% endfor %}{% endif %}{% endif %}
+{% if header.resume.general.scripts %}
+<script>
+{{header.resume.general.scripts}}
+</script>
+{% endif %}
+</body>

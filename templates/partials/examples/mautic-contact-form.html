@@ -1,0 +1,92 @@
+<!--  UPDATE WITH YOUR OWN INFO & PASTE INTO THIS THEME'S "CONTACT FORM HTML" SECTION -->
+<form id="mauticform_contactform" class="contact-form" novalidate method="post" action="https://marketing.jtbray.com/form/submit?formId=1" data-mautic-form="contactform" enctype="multipart/form-data">
+  <div class="messages"></div>
+  <div class="controls">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <input id="first_name" name="mauticform[first]" class="form-control" placeholder="First Name" required="required" data-error="First name is required." type="text">
+        <div class="form-control-border"></div> <i class="form-control-icon fa fa-user"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <input id="last_name" name="mauticform[last]" class="form-control" placeholder="Last Name" required="required" data-error="Last name is required." type="text">
+        <div class="form-control-border"></div> <i class="form-control-icon fa fa-address-card"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <input id="form_email" name="mauticform[email]" class="form-control" placeholder="Email Address" required="required" data-error="Valid email is required." type="email">
+        <div class="form-control-border"></div> <i class="form-control-icon fa fa-envelope"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <textarea id="form_message" name="mauticform[f_message]" class="form-control" placeholder="Message for me" rows="4" required="required" data-error="Please, leave me a message."></textarea>
+        <div class="form-control-border"></div> <i class="form-control-icon fa fa-comment"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <input type="hidden" name="mauticform[formId]" id="mauticform_contactform_id" value="1" />
+    <input type="hidden" name="mauticform[return]" id="mauticform_contactform_return" value="" />
+    <input type="hidden" name="mauticform[formName]" id="mauticform_contactform_name" value="contactform" />
+    <input class="button btn-send disabled uppercase" value="Send message" type="submit">
+  </div>
+</form>
+<script>
+  if (typeof MauticSDKLoaded == 'undefined') {
+    var MauticSDKLoaded = true;
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://marketing.jtbray.com/media/js/mautic-form.js';
+    script.onload = function() {
+      MauticSDK.onLoad();
+    };
+    head.appendChild(script);
+    var MauticDomain = 'https://marketing.jtbray.com';
+    var MauticLang = {
+      'submittingMessage': "Please wait..."
+    }
+    if (typeof MauticFormCallback == 'undefined') {
+      var MauticFormCallback = {};
+    }
+
+    function openInNewTab(url) {
+      var win = window.open(url, '_blank');
+      win.focus();
+    }
+    MauticFormCallback['contactform'] = {
+      onResponseStart: function(response) {
+        if (response.success === 1) {
+          swal({
+            type: 'success',
+            title: 'Thank you ' + response.results.first + '!',
+            text: "I'll be in touch shortly... here are some links to keep you busy!",
+            footer: 'PS. Check your e-mail!',
+            showCancelButton: true,
+            confirmButtonText: 'Project Github',
+            cancelButtonText: 'Browse Imgur',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.value) {
+              openInNewTab('https://github.com/jtbray/brilliant-resume');
+            } else if (result.dismiss === swal.DismissReason.cancel) {
+              openInNewTab('https://imgur.com');
+            }
+          });
+        } else {
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: 'Please check to make sure all info is accurate'
+          });
+        }
+      }
+    };
+  }
+</script>

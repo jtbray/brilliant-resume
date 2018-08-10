@@ -1,0 +1,26 @@
+name: Brilliant Resume
+version: 1.0.0
+description: Brilliant Resume Theme
+author:
+  name: Jason Thomas Bray
+  email: me@jtbray.com
+homepage: https://github.com/jtbray/brilliant-resume
+demo: https://jtbray.com
+keywords: brilliant resume, grav theme
+bugs: https://github.com/jtbray/brilliant-resume/issues
+readme: https://github.com/jtbray/brilliant-resume/blob/develop/README.md
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in Menu
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool

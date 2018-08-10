@@ -1,0 +1,142 @@
+<!--  EDIT, COPY & PASTE INTO MAUTIC'S FOCUS ITEM BUILDER to COLLECT DATA in a MODAL -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+  html,
+  body {
+    background: #02a2a2;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .mf-modal {
+    background: #02a2a2;
+    color: #fff;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  .mf-modal .mf-modal-close a {
+    color: #fff;
+    position: relative;
+    top: .5em;
+    right: .5em;
+  }
+
+  .mauticform-button {
+    background-color: #4e5d9d;
+    width: 100% !important;
+    padding: .75em !important;
+    height: auto !important;
+    margin-top: -.5em;
+    font-weight: 600;
+  }
+
+  .mf-content .mauticform-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .mf-content .mauticform-input:focus {
+    border: none;
+  }
+
+  .mf-content .mauticform-input::placeholder {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .mauticform-button:hover {
+    color: #fff;
+  }
+
+  .modal-title {
+    color: rgba(255, 255, 255, .5);
+    font-weight: 600;
+  }
+
+  .modal-subtitle {
+    font-weight: 600;
+  }
+
+  .modal-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border-top: none;
+  }
+
+  .modal-form {
+    padding: 2em 0;
+  }
+</style>
+<h1 class="modal-title text-center uppercase">Thanks for visiting</h1>
+<br />
+<h3 class="modal-subtitle">Type in your e-mail below to download a digital copy of my resume!</h3>
+<br />
+<br />
+<div class="modal-form">
+  {focus_form}
+</div>
+<br />
+<br />
+<p class="modal-footer uppercase" style="font-weight:600;">
+  <em>Powered by</em>
+  <img src="https://www.ostraining.com/cdn/images/mautic/Mautic_Logo_LB.png" style="max-height:1.5em;margin:-.25em .25em 0 .25em;" />
+  <em>Mautic</em>
+</p>
+<!-- MAUTIC FOCUS ITEMS USE IFRAMES SO WE NEED TO PROPERLY HANDLE FORM SUBMISSION WE NEED TO POST A MESSAGE TO GRAV -->
+<script>
+  if (typeof MauticFormCallback == 'undefined') {
+    var MauticFormCallback = {};
+  }
+  MauticFormCallback['resumedownload_focus'] = {
+    onResponse: function(r) {
+      if (r.success === 1) {
+        window.parent.postMessage({
+          event_id: 'dl_success'
+        }, '*');
+      } else {
+        window.parent.postMessage({
+          event_id: 'dl_fail'
+        }, '*');
+      }
+    }
+  };
+  document.forms[0][0].focus();
+</script>
+<!-- BELOW GOES IN THE GRAV HOMEPAGE'S JAVASCRIPT SECTION (without the opening & closing script tags) -->
+<script>
+  // CATCH & HANDLE THE MESSAGE FROM THE MAUTIC IFRAME
+  window.addEventListener('message', function(e) {
+    if (e.data.event_id === 'dl_success') {
+      swal({
+        type: 'success',
+        timer: 5000,
+        title: 'Here it is!',
+        text: 'Now get back to browsing!'
+      }).then((result) => {
+        $('.mf-modal-iframe').remove();
+        $('.mf-modal-overlay').remove();
+      });
+    } else if (e.data.event_id === 'dl_fail') {
+      swal({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: 'Please re-enter your email'
+      });
+    }
+  });
+</script>

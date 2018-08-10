@@ -1,0 +1,38 @@
+<form id="contact-form" method="post" action="#" novalidate="true">
+  <div class="messages"></div>
+  <div class="controls">
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <input id="first_name" name="first_name" class="form-control" placeholder="First Name" required="required" data-error="First name is required." type="text">
+        <div class="form-control-border"></div>
+        <i class="form-control-icon fa fa-user"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <input id="last_name" name="last_name" class="form-control" placeholder="Last Name" required="required" data-error="Last name is required." type="text">
+        <div class="form-control-border"></div>
+        <i class="form-control-icon fa fa-address-card"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <input id="form_email" name="email" class="form-control" placeholder="Email Address" required="required" data-error="Valid email is required." type="email">
+        <div class="form-control-border"></div>
+        <i class="form-control-icon fa fa-envelope"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <textarea id="form_message" name="message" class="form-control" placeholder="Message for me" rows="4" required="required" data-error="Please, leave me a message."></textarea>
+        <div class="form-control-border"></div>
+        <i class="form-control-icon fa fa-comment"></i>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+    <input class="button btn-send disabled uppercase" value="Send message" type="submit" onclick="javascript:event.preventDefault();alert('Update your contact form!');">
+  </div>
+</form>

@@ -1,0 +1,80 @@
+          <section class="pt-page pt-page-5" data-id="contact">
+            <div class="section-title-block">
+{% if header.resume.contact.customtitle %}
+              <h2 class="section-title">{{header.resume.contact.customtitle}}</h2>
+{% else %}
+              <h2 class="section-title">Contact</h2>
+{% endif %}
+{% if header.resume.contact.subtitle %}
+              <h5 class="section-description">{{header.resume.contact.subtitle}}</h5>
+{% endif %}
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-md-6 subpage-block">
+{% if header.resume.contact.info_title %}
+                <div class="block-title">
+                  <h3>{{header.resume.contact.info_title}}</h3>
+                </div>
+{% endif %}
+{% if header.resume.contact.info_subtitle %}
+                <p><strong>{{header.resume.contact.info_subtitle}}</strong></p>
+{% endif %}
+{% if header.resume.home.email %}
+                <div class="contact-info-block">
+                  <div class="ci-icon">
+                    <i class="fa fa-envelope-open"></i>
+                  </div>
+                  <div class="ci-text">
+                    <h4>
+                      <a class="uppercase" href="mailto:{{header.resume.home.email}}">{{header.resume.home.email}}</a>
+                    </h4>
+                  </div>
+                </div>
+{% endif %}
+{% if header.resume.home.phone %}
+                <div class="contact-info-block">
+                  <div class="ci-icon">
+                    <i class="fa fa-headset"></i>
+                  </div>
+                  <div class="ci-text">
+                    <h4>
+                      <a href="tel:{{header.resume.home.phone}}">{{header.resume.home.phone}}</a>
+                    </h4>
+                  </div>
+                </div>
+{% endif %}
+{% if header.resume.contact.info_address %}
+                <div class="contact-info-block">
+                  <div class="ci-icon">
+                    <i class="fa fa-map-marked-alt"></i>
+                  </div>
+                  <div class="ci-text">
+                    <h4 class="uppercase">{{header.resume.contact.info_address}}</h4>
+                  </div>
+                </div>
+{% endif %}
+{% if header.resume.contact.form.html %}
+{% else %}
+                <div class="contact-info-block">
+                  <div class="ci-text">
+                    <h4 class="uppercase">Insert your form HTML in the Admin settings for this page.</h4>
+                    <p>Use the form on the right as a style example.</p>
+                    <h5><em>I recommend using Mautic to handle your submissions!</em></h5>
+                  </div>
+                </div>
+{% endif %}
+              </div>
+              <div class="col-sm-6 col-md-6 subpage-block">
+{% if header.resume.contact.form.title %}
+                <div class="block-title">
+                  <h3>{{header.resume.contact.form.title}}</h3>
+                </div>
+{% endif %}
+{% if header.resume.contact.form.html %}
+{{ header.resume.contact.form.html }}
+{% else %}
+{% include "partials/demo-contact-form.html.twig" %}
+{% endif %}
+              </div>
+            </div>
+          </section>

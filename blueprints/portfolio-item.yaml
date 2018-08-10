@@ -1,0 +1,96 @@
+title: Portfolio Item
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+
+      fields:
+        content:
+          type: tab
+          fields:
+            header.resume.general:
+              unset@: true
+            header.resume.sidebar:
+              unset@: true
+            header.resume.home:
+              unset@: true
+            header.resume.about:
+              unset@: true
+            header.resume.section:
+              unset@: true
+            header.resume.portfolio:
+              unset@: true
+            header.resume.contact:
+              unset@: true
+            header.subtitle:
+              toggleable: true
+              type: text
+              label: Subtitle
+            header.hover_title:
+              toggleable: true
+              type: text
+              label: Hover Title
+            header.hover_des:
+              toggleable: true
+              type: text
+              label: Hover Description
+            header.hover_ico:
+              toggleable: true
+              type: text
+              label: Hover Icon
+              help: Font Awesome Icons ex: fa-spoon
+            header.clienturl:
+              toggleable: true
+              type: text
+              label: Client's URL
+            header.projectdate:
+              toggleable: true
+              type: text
+              size: medium
+              label: Project Date
+            header.projectdescription:
+              type: editor
+              label: Project Overview
+            header.projectags:
+              label: Project Tags
+              type: list
+              style: vertical
+              fields:
+                .name:
+                  type: text
+                  label: Tag Name
+            header.project_thumbnail:
+              name: project_thumbnail
+              type: file
+              label: Project Thumbnail
+              destination: '@self'
+              multiple: false
+              autofocus: false
+              accept:
+                - image/*
+            header.project_thumbnail_alt:
+              toggleable: true
+              type: text
+              label: Project Thumbnail Alt Text
+            header.project_main_img:
+              name: project_main_img
+              type: file
+              label: Project Main Image
+              destination: '@self'
+              multiple: false
+              autofocus: false
+              accept:
+                - image/*
+            header.project_main_img_alt:
+              toggleable: true
+              type: text
+              label: Project Main Image Alt Text
+            header.videourl:
+              toggleable: true
+              type: text
+              label: Video URL
+              help: URL of video to embed (displays only if no Main Image exists)

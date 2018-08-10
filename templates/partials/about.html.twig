@@ -1,0 +1,124 @@
+          <section class="pt-page pt-page-2" data-id="about_me">
+            <div class="section-title-block">
+{% if header.resume.about.customtitle %}
+              <h2 class="section-title">{{header.resume.about.customtitle}}</h2>
+{% else %}
+              <h2 class="section-title">About</h2>
+{% endif %}{% if header.resume.about.subtitle %}
+              <h5 class="section-description uppercase">{{header.resume.about.subtitle}}</h5>
+{% endif %}
+            </div>
+            <div class="row">
+{% if header.resume.testimonials %}
+              <div class="col-sm-6 col-md-6 subpage-block">
+{% else %}
+              <div class="col-xs-12 subpage-block">
+{% endif %}
+                <div class="general-info">
+{% if header.resume.about.general_header %}
+                  <h3>{{header.resume.about.general_header}}</h3>
+{% endif %}{% if header.resume.about.general_info %}
+                  <p>{{ header.resume.about.general_info }}</p>
+{% endif %}
+                </div>
+              </div>
+{% if header.resume.testimonials %}
+              <div class="col-sm-6 col-md-6 subpage-block">
+{% if header.resume.testimonial.customtitle %}
+                <div class="block-title">
+                  <h3 class="font-600 uppercase">{{header.resume.testimonial.customtitle}}</h3>
+                </div>
+{% else %}
+                <div class="block-title">
+                  <h3 class="font-600 uppercase">Testimonials</h3>
+                </div>
+{% endif %}
+                <div class="testimonials owl-carousel">
+{% for testimonial in header.resume.testimonials %}
+                  <div class="testimonial-item" style="width:100%">
+                    <div class="testimonial-content">
+                      <div class="testimonial-text">
+                        <p>"{{ testimonial.quote }}"</p>
+                      </div>
+                    </div>
+                    <div class="testimonial-credits">
+{% if testimonial.owner_img %}{% set img = testimonial.owner_img|last %}
+                      <div class="testimonial-picture">
+                        <img src=" {{ img.name }} " {% if testimonial.owner_img_alt %} alt="{{testimonial.owner_img_alt}}" {% endif %}>
+                      </div>
+{% endif %}
+                      <div class="testimonial-author-info">
+                        <p class="testimonial-author">{{ testimonial.owner }}</p>
+                        <p class="testimonial-firm">{{ testimonial.company }}</p>
+                      </div>
+                    </div>
+                  </div>
+{% endfor %}
+                </div>
+              </div>
+{% endif %}
+            </div>
+{% if header.resume.expertise.title %}
+            <div class="block-title">
+              <h3 class="font-600 uppercase">{{header.resume.expertise.title}}</h3>
+            </div>
+{% endif %}
+            <div class="row">
+{% if header.resume.skills %}
+{% set s = header.resume.skills | length %}
+{% for skill in header.resume.skills %}
+{% if s == 1 %}
+              <div class="col-xs-12 subpage-block">
+{% elseif s == 2 %}
+              <div class="col-sm-6 col-md-6 subpage-block">
+{% elseif s == 3 %}
+              <div class="col-sm-6 col-md-4 subpage-block">
+{% elseif s == 4 %}
+              <div class="col-sm-6 col-md-6 col-lg-3 subpage-block">
+{% endif %}
+                <div class="service-block">
+                  <div class="service-info">
+{% if skill.icon %}{% set img = skill.icon|last %}
+                    <img src=" {{ img.name }} " {% if skill.icon_alt %} alt="{{skill.icon_alt}}" {% endif %}>
+{% endif %}
+                    <h4>{{skill.name}}</h4>
+                    <p>{{skill.description}}</p>
+                  </div>
+                </div>
+              </div>
+{% endfor %}
+{% endif %}
+            </div>
+{% if header.resume.tools.title %}
+            <div class="block-title">
+              <h3 class="font-600 uppercase">{{header.resume.tools.title}}</h3>
+            </div>
+{% endif %}
+            <div class="row">
+{% if header.resume.tool %}{% set t = header.resume.tool | length %}{% for tool in header.resume.tool %}
+{% if t == 1 %}
+              <div class="col-xs-12 subpage-block">
+{% elseif t == 2 %}
+              <div class="col-md-6 subpage-block">
+{% elseif t == 3 %}
+              <div class="col-md-4 subpage-block">
+{% elseif t == 4 %}
+              <div class="col-md-3 subpage-block">
+{% elseif t == 5 %}
+              <div class="col-md-2 subpage-block">
+{% elseif t == 6 %}
+              <div class="col-md-2 subpage-block">
+{% endif %}
+                <div class="client_block">
+{% if tool.logo %}{% set img = tool.logo|last %}{% if tool.logo_link %}
+                  <a href="{{tool.logo_link}}" target="_blank">
+{% endif %}
+                    <img src=" {{ img.name }} " {% if tool.logo_alt %} alt="{{tool.logo_alt}}" {% endif %}>
+{% if tool.logo_link %}
+                  </a>
+{% endif %}{% endif %}
+                </div>
+              </div>
+{% endfor %}{% endif %}
+            </div>
+          </section>

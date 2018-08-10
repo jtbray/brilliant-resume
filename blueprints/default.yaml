@@ -1,0 +1,539 @@
+title: Default
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        portfolio-item:
+          unset@: true
+        content:
+          type: tab
+          fields:
+            header.media_order:
+              unset@: true
+            content:
+              unset@: true
+            header.resume.general:
+              type: fieldset
+              title: General
+              icon: code
+              collapsed: false
+              collapsible: true
+              fields:
+                header.resume.general.bgcolor:
+                  type: colorpicker
+                  label: Choose theme's primary color
+                  default: "#2fc0d1"
+                header.resume.general.secondarycolor:
+                  type: colorpicker
+                  label: Choose theme's secondary color
+                  default: "#9bd952"
+                header.resume.general.github:
+                  type: toggle
+                  label: Show Github Corner Badge
+                  highlight: 1
+                  options:
+                    1: PLUGIN_ADMIN.YES
+                    0: PLUGIN_ADMIN.NO
+                  default: 0
+                header.resume.general.github_link:
+                  toggleable: true
+                  type: text
+                  label: Github Corner Badge Link
+                header.resume.general.github_text:
+                  toggleable: true
+                  type: text
+                  label: Github Corner Badge Text
+                header.resume.general.mautic:
+                  type: fieldset
+                  title: Mautic
+                  icon: bars
+                  collapsed: true
+                  collapsible: true
+                  fields:
+                    header.resume.general.mautic_url:
+                      toggleable: true
+                      type: text
+                      label: Base URL
+                      help: inserts mtc.js tracking code (no trailing slash) ex: https://mautic.example.com
+                    header.resume.general.mautic_focus_header:
+                          type: section
+                          title: Focus Items
+                          underline: false
+                          fields:
+                            header.resume.general.mautic_focus_items:
+                              name: focus_items
+                              type: list
+                              style: vertical
+                              fields:
+                                .focus_id:
+                                  type: text
+                                  label: ID
+                header.resume.general.scripts_header:
+                  type: fieldset
+                  title: CSS & JS
+                  icon: bars
+                  collapsed: true
+                  collapsible: true
+                  fields:
+                    header.resume.general.styles:
+                      type: editor
+                      label: CSS
+                    header.resume.general.scripts:
+                      type: editor
+                      label: Javascript
+
+            header.resume.sidebar:
+              type: fieldset
+              title: Sidebar
+              icon: bars
+              collapsed: false
+              collapsible: true
+              fields:
+                header.resume.sidebar.profile_img:
+                  name: profile_img
+                  type: file
+                  label: Profile Image 1
+                  destination: '@self'
+                  multiple: false
+                  autofocus: false
+                  accept:
+                    - image/*
+                header.resume.sidebar.profile_img_alt:
+                  toggleable: true
+                  type: text
+                  label: Profile Image Alt Text
+                header.resume.sidebar.profile_img_2:
+                  name: profile_img_2
+                  type: file
+                  label: Profile Image 2 (comparison)
+                  destination: '@self'
+                  multiple: false
+                  autofocus: false
+                  accept:
+                    - image/*
+                header.resume.sidebar.profile_img_2_alt:
+                  toggleable: true
+                  type: text
+                  label: Profile Image 2 Alt Text
+                header.resume.sidebar.profile_img_comp:
+                  toggleable: true
+                  type: text
+                  label: Comparison Start %
+                  help: Where to start the image comparison slider (if profile image 1 & 2)
+                header.resume.sidebar.name:
+                  toggleable: true
+                  type: text
+                  label: Your Initials
+                header.resume.sidebar.subtitle:
+                  toggleable: true
+                  type: text
+                  label: Profile Subtitle
+                header.resume.sidebar.nav:
+                  type: fieldset
+                  title: Navigation
+                  icon: bars
+                  collapsed: true
+                  collapsible: true
+                  fields:
+                    header.resume.sidebar.nav.home:
+                      toggleable: true
+                      type: text
+                      label: Home Link Text
+                    header.resume.sidebar.nav.about:
+                      toggleable: true
+                      type: text
+                      label: About Link Text
+                    header.resume.sidebar.nav.resume:
+                      toggleable: true
+                      type: text
+                      label: Resume Link Text
+                    header.resume.sidebar.nav.portfolio:
+                      toggleable: true
+                      type: text
+                      label: Portfolio Link Text
+                    header.resume.sidebar.nav.contact:
+                      toggleable: true
+                      type: text
+                      label: Contact Link Text
+                header.resume.sidebar.social:
+                  type: fieldset
+                  title: Social
+                  icon: users
+                  collapsed: true
+                  collapsible: true
+                  fields:
+                    header.resume.sidebar.social.facebook:
+                      toggleable: true
+                      type: text
+                      label: Facebook
+                    header.resume.sidebar.social.twitter:
+                      toggleable: true
+                      type: text
+                      label: Twitter
+                    header.resume.sidebar.social.instagram:
+                      toggleable: true
+                      type: text
+                      label: Instagram
+                    header.resume.sidebar.social.linkedin:
+                      toggleable: true
+                      type: text
+                      label: LinkedIn
+                    header.resume.sidebar.social.gplus:
+                      toggleable: true
+                      type: text
+                      label: Google +
+                    header.resume.sidebar.social.youtube:
+                      toggleable: true
+                      type: text
+                      label: Youtube
+                    header.resume.sidebar.social.dribbble:
+                      toggleable: true
+                      type: text
+                      label: Dribbble
+                    header.resume.sidebar.social.behance:
+                      toggleable: true
+                      type: text
+                      label: Behance
+                    header.resume.sidebar.social.github:
+                      toggleable: true
+                      type: text
+                      label: Github
+
+            header.resume.home:
+              type: fieldset
+              title: Home
+              icon: home
+              collapsed: false
+              collapsible: true
+              fields:
+                header.resume.home.fullname:
+                  toggleable: true
+                  type: text
+                  label: Full Name
+                header.resume.home.typedtitles:
+                  toggleable: true
+                  type: text
+                  label: Typed Descriptions
+                  help: (ie. 'one,two,three')
+                header.resume.home.email:
+                  toggleable: true
+                  type: email
+                  label: E-mail
+                header.resume.home.phone:
+                  toggleable: true
+                  type: text
+                  label: Phone
+                header.resume.home.bg_img:
+                  name: bg_img
+                  type: file
+                  label: Custom Background Image
+                  destination: '@self'
+                  multiple: false
+                  autofocus: false
+                  accept:
+                    - image/*
+
+            header.resume.about:
+                type: fieldset
+                title: About
+                icon: user-circle
+                collapsed: false
+                collapsible: true
+                fields:
+                  header.resume.about.customtitle:
+                    toggleable: true
+                    type: text
+                    label: Custom Title
+                  header.resume.about.subtitle:
+                    toggleable: true
+                    type: text
+                    label: Section Subtitle
+                  header.resume.about.general_header:
+                    toggleable: true
+                    type: text
+                    label: General Info Header
+                  header.resume.about.general_info:
+                    type: editor
+                    label: General Info
+                  header.resume.testimonials:
+                    type: fieldset
+                    title: Testimonials
+                    icon: id-card
+                    collapsed: true
+                    collapsible: true
+                    fields:
+                      header.resume.testimonial.customtitle:
+                        toggleable: true
+                        type: text
+                        label: Section Title
+                      header.resume.listheader:
+                            type: section
+                            title: Each testimonial will be displayed in a carousel
+                            underline: false
+                            fields:
+                              header.resume.testimonials:
+                                name: testimonials
+                                type: list
+                                style: vertical
+                                fields:
+                                  .company:
+                                    type: text
+                                    label: Company
+                                  .owner:
+                                    type: text
+                                    label: Owner
+                                  .quote:
+                                    type: textarea
+                                    label: Quote
+                                  .owner_img:
+                                    name: owner_img
+                                    type: file
+                                    label: Owner's Image
+                                    destination: '@self'
+                                    multiple: false
+                                    autofocus: false
+                                    accept:
+                                      - image/*
+                                  .owner_img_alt:
+                                    name: owner_img_alt
+                                    type: text
+                                    label: Owner Image Alt Text
+                  header.resume.expertise:
+                    type: fieldset
+                    title: Expertise
+                    icon: bullhorn
+                    collapsed: true
+                    collapsible: true
+                    fields:
+                      header.resume.expertise.title:
+                        toggleable: true
+                        type: text
+                        label: Section Title
+                        placeholder: Expertise
+                      header.resume.skills:
+                        name: skills
+                        type: list
+                        style: vertical
+                        fields:
+                          .name:
+                            type: text
+                            label: Skill Name
+                          .description:
+                            type: textarea
+                            label: Description
+                          .icon:
+                            name: icon
+                            type: file
+                            label: Skill Icon
+                            destination: '@self'
+                            multiple: false
+                            autofocus: false
+                            accept:
+                              - image/*
+                          .icon_alt:
+                            name: icon_alt
+                            type: text
+                            label: Skill Icon Alt Text
+                  header.resume.tools:
+                    type: fieldset
+                    title: Tools
+                    help: Display up to 6 tools
+                    icon: briefcase
+                    collapsed: true
+                    collapsible: true
+                    fields:
+                      header.resume.tools.title:
+                        toggleable: true
+                        type: text
+                        label: Custom Title
+                        default: Tools & Platforms
+                      header.resume.tool:
+                        name: tool
+                        type: list
+                        style: vertical
+                        fields:
+                          .logo:
+                            name: icon
+                            type: file
+                            label: Logo Image
+                            destination: '@self'
+                            multiple: false
+                            autofocus: false
+                            accept:
+                              - image/*
+                          .logo_alt:
+                            toggleable: true
+                            type: text
+                            label: Logo Alt Text
+                          .logo_link:
+                            toggleable: true
+                            type: text
+                            label: Logo Link
+                            help: Opens in new window
+
+            header.resume.section:
+              type: fieldset
+              title: Resume
+              icon: paperclip
+              collapsed: false
+              collapsible: true
+              fields:
+                header.resume.section.customtitle:
+                  toggleable: true
+                  type: text
+                  label: Custom Title
+                header.resume.section.subtitle:
+                  toggleable: true
+                  type: text
+                  label: Section Subtitle
+                header.resume.section.downloadbtn:
+                  toggleable: true
+                  type: text
+                  label: Download Button Text
+                  default: Download Resume
+                header.resume.section.download:
+                  toggleable: true
+                  type: text
+                  label: Download Button URL
+                  help: For traditional resume assets (pdf, word, etc...)
+                header.resume.experience:
+                  type: fieldset
+                  title: Experience
+                  icon: building
+                  collapsed: true
+                  collapsible: true
+                  fields:
+                    header.resume.job:
+                      name: job
+                      type: list
+                      style: vertical
+                      fields:
+                        .date:
+                          type: text
+                          label: Dates
+                        .company:
+                          type: text
+                          label: Company Name
+                        .title:
+                          type: text
+                          label: Job Title
+                        .description:
+                          type: editor
+                          label: Job Description
+                header.resume.education:
+                  type: fieldset
+                  title: Education
+                  icon: university
+                  collapsed: true
+                  collapsible: true
+                  fields:
+                    header.resume.schools:
+                      name: school
+                      type: list
+                      style: vertical
+                      fields:
+                        .date:
+                          type: text
+                          label: Graduation Date
+                        .name:
+                          type: text
+                          label: School Name
+                        .degree:
+                          type: text
+                          label: Degree
+                        .description:
+                          type: editor
+                          label: Additional Description
+                header.resume.skills_groups:
+                  type: fieldset
+                  title: Skills
+                  icon: line-chart
+                  collapsed: true
+                  collapsible: true
+                  fields:
+                    header.resume.skills:
+                      name: skills
+                      type: list
+                      style: vertical
+                      fields:
+                        .title:
+                          type: text
+                          label: Group Title
+                        .skillslist:
+                          name: skillslist
+                          type: list
+                          style: vertical
+                          fields:
+                            .name:
+                              type: text
+                              label: Skill Name
+                            .description:
+                              type: text
+                              label: Skill Description
+                            .percentage:
+                              type: text
+                              label: Skill Percentage
+
+            header.resume.portfolio:
+              type: fieldset
+              title: Portfolio
+              icon: folder-open
+              collapsed: false
+              collapsible: true
+              fields:
+                header.resume.portfolio.customtitle:
+                  toggleable: true
+                  type: text
+                  label: Custom Title
+                header.resume.portfolio.subtitle:
+                  toggleable: true
+                  type: text
+                  label: Section Subtitle
+                header.resume.portfolio.tags:
+                  label: Tags to filter by (from portfolio items)
+                  name: portfolio
+                  type: list
+                  style: vertical
+                  fields:
+                    .name:
+                      type: text
+                      label: Name
+
+            header.resume.contact:
+              type: fieldset
+              title: Contact
+              icon: comments
+              collapsed: false
+              collapsible: true
+              fields:
+                header.resume.contact.customtitle:
+                  toggleable: true
+                  type: text
+                  label: Custom Title
+                header.resume.contact.subtitle:
+                  toggleable: true
+                  type: text
+                  label: Section Subtitle
+                header.resume.contact.info_title:
+                  toggleable: true
+                  type: text
+                  label: Info Title
+                header.resume.contact.info_subtitle:
+                  toggleable: true
+                  type: text
+                  label: Info Subtitle
+                header.resume.contact.info_address:
+                  toggleable: true
+                  type: text
+                  label: Info Address
+                header.resume.contact.form.title:
+                  toggleable: true
+                  type: text
+                  label: Form Title
+                header.resume.contact.form.html:
+                  type: editor
+                  label: Form HTML

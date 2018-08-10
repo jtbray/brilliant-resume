@@ -1,0 +1,80 @@
+          <section class="pt-page pt-page-3" data-id="resume">
+            <div class="section-title-block">
+{% if header.resume.section.customtitle %}
+              <h2 class="section-title">{{header.resume.section.customtitle}}</h2>
+{% else %}
+              <h2 class="section-title">Resume</h2>
+{% endif %}
+{% if header.resume.section.subtitle %}
+{% if header.resume.section.downloadbtn %}
+              <h5 class="section-description uppercase" style="max-width:50%;">{{header.resume.section.subtitle}}</h5>
+{% else %}
+              <h5 class="section-description uppercase">{{header.resume.section.subtitle}}</h5>
+{% endif %}
+{% endif %}
+            </div>
+{% if header.resume.section.downloadbtn %}
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <div class="download-cv-block">
+                  <a class="button uppercase" {% if header.resume.section.download %} href="{{header.resume.section.download}}" {% endif %}>
+                    {{header.resume.section.downloadbtn}}
+                  </a>
+                </div>
+              </div>
+            </div>
+{% endif %}
+            <div class="row">
+              <div class="col-sm-6 col-md-8 subpage-block" style="float:left;">
+{% if header.resume.job | length > 0 %}
+                <div class="block-title">
+                  <h3 class="font-600">EXPERIENCE</h3>
+                </div>
+                <div class="timeline">
+{% for job in header.resume.job %}
+                  <div class="timeline-event te-primary">
+                    <h5 class="event-date">{{job.date}}</h5>
+                    <h4 class="event-name">{{job.company}}</h4>
+                    <span class="event-description">{{job.title}}</span>
+                    {{job.description}}
+                  </div>
+{% endfor %}
+                </div>
+{% endif %}
+              </div>
+{% if header.resume.skills | length > 0 %}
+              <div class="col-sm-6 col-md-4 subpage-block" style="float:right;">
+{% for group in header.resume.skills %}
+                <div class="block-title">
+                  <h3 class="font-600">{{group.title}}</h3>
+                  <div class="skills-info">
+{% for skill in group.skillslist %}
+                    <h4>{{skill.name}} {% if skill.description %}<em>- ({{skill.description}})</em>{% endif %}</h4>
+                    <div class="skill-container">
+                      <div class="skill-percentage" style="width:{{skill.percentage}}%;"></div>
+                    </div>
+{% endfor %}
+                  </div>
+                </div>
+{% endfor %}
+              </div>
+{% endif %}
+{% if header.resume.schools | length > 0 %}
+              <div class="col-sm-6 col-md-8 subpage-block" style="float:left;">
+                <div class="block-title">
+                  <h3 class="font-600">EDUCATION</h3>
+                </div>
+                <div class="timeline">
+{% for school in header.resume.schools %}
+                  <div class="timeline-event te-primary col-xs-12">
+                    <h5 class="event-date">{{school.date}}</h5>
+                    <h4 class="event-name">{{school.name}}</h4>
+                    <span class="event-description">{{school.degree}}</span>
+                    {{school.description}}
+                  </div>
+{% endfor %}
+                </div>
+              </div>
+{% endif %}
+            </div>
+          </section>

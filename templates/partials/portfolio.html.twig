@@ -1,0 +1,41 @@
+          <section class="pt-page pt-page-4" data-id="portfolio">
+            <div class="section-title-block">
+{% if header.resume.portfolio.customtitle %}
+              <h2 class="section-title">{{header.resume.portfolio.customtitle}}</h2>
+{% else %}
+              <h2 class="section-title">Portfolio</h2>
+{% endif %}
+{% if header.resume.portfolio.subtitle %}
+              <h5 class="section-description">{{header.resume.portfolio.subtitle}}</h5>
+{% endif %}
+            </div>
+            <div class="portfolio-content">
+{% if header.resume.portfolio.tags | length > 0 %}
+              <ul id="portfolio_filters" class="portfolio-filters">
+                <li class="active">
+                  <a class="filter btn btn-sm btn-link active" data-group="all">ALL</a>
+                </li>
+{% for tag in header.resume.portfolio.tags %}
+                <li>
+                  <a class="filter btn btn-sm btn-link uppercase" data-group="{{tag.name}}">{{tag.name}}</a>
+                </li>
+{% endfor %}
+              </ul>
+{% endif %}
+              <div id="portfolio_grid" class="portfolio-grid portfolio-masonry masonry-grid-4">
+{% for item in page.find('/portfolio').children %}
+                <figure class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" data-groups='["all",{% for tag in item.header.projectags %} "{{tag.name}}", {% endfor %}""]'>
+                  <a class="ajax-page-load" href="{{item.url}}">
+{% set thumb = item.header.project_thumbnail|last %}
+                    <img class="portfolio-img" src="{{ thumb.path }}" {% if item.header.project_thumbnail_alt %} alt="{{item.header.project_thumbnail_alt}}" {% endif %}>
+                    <div>
+                      <h5 class="name uppercase">{{item.header.hover_title}}</h5>
+                      <small class="uppercase">{{item.header.hover_des}}</small>
+                      <i class="fa {{item.header.hover_ico}}"></i>
+                    </div>
+                  </a>
+                </figure>
+{% endfor %}
+              </div>
+            </div>
+          </section>

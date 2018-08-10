@@ -1,0 +1,107 @@
+.macbook {
+  width: 766px;
+  margin: 50px auto;
+}
+.macbook .screen {
+  background: #181818;
+  height: 512px;
+  padding: 25px 25px 35px;
+  border: 3px solid #d2d3d5;
+  border-radius: 30px 30px 15px 15px;
+  box-sizing: border-box;
+}
+.macbook .screen .browser {
+  background: #fff;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.macbook .screen .browser .toolbar {
+  background: #d2d2d2;
+  padding: 0 0 5px;
+  text-align: left;
+}
+.macbook .screen .browser .toolbar .row_one {
+  padding: 0 10px 0;
+}
+.macbook .screen .browser .toolbar .row_one .dot {
+  display: inline-block;
+  background: #fff;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+}
+.macbook .screen .browser .toolbar .row_one .dot:first-child {
+  background: #e76d6b;
+}
+.macbook .screen .browser .toolbar .row_one .dot:nth-child(2) {
+  background: #dfbc43;
+}
+.macbook .screen .browser .toolbar .row_one .dot:nth-child(3) {
+  background: #37d488;
+}
+.macbook .screen .browser .toolbar .row_two .nav {
+  display: inline-block;
+  margin: 0 0 0 10px;
+  vertical-align: middle;
+}
+.macbook .screen .browser .toolbar .row_two .nav .prev,
+.macbook .screen .browser .toolbar .row_two .nav .next {
+  display: inline-block;
+  background: #e6e6e6;
+  width: 13px;
+  color: #7f7f7f;
+  font-size: 10px;
+  line-height: 11px;
+  text-align: center;
+  vertical-align: middle;
+  float: left;
+}
+.macbook .screen .browser .toolbar .row_two .address_bar {
+  display: inline-block;
+  background: #fff;
+  width: 445px;
+  height: 11px;
+  margin: 0 6px 0 0;
+  padding: 0 5px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #666666;
+  font-size: 6px;
+  line-height: 13px;
+  vertical-align: middle;
+}
+.macbook .screen .browser .toolbar .row_two .search_bar {
+  display: inline-block;
+  background: #fff;
+  width: 205px;
+  height: 11px;
+  border-radius: 100px;
+  vertical-align: middle;
+}
+.macbook .screen .browser .content {
+  display: block;
+  height: 90%;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.macbook .screen .browser .content iframe {
+  border: none;
+}
+.macbook .body {
+  width: 948px;
+  margin: -10px 0 0 -91px;
+}
+.macbook .body:before {
+  display: block;
+  content: '';
+  background: #c4c4c6;
+  height: 17px;
+}
+.macbook .body:after {
+  display: block;
+  content: '';
+  background: #b3b3b6;
+  height: 11px;
+  border-radius: 0 0 100px 100px;
+}

@@ -1,0 +1,91 @@
+<div id="portfolio-page" class="portfolio-page-content">
+  <div class="container">
+    <div class="portfolio-nav">
+      <div id="portfolio-close-button" class="portfolio-close-button">
+        <a href="#portfolio">
+          <i class="fa fa-window-close"></i>
+        </a>
+      </div>
+    </div>
+    <div class="portfolio-title">
+      <h1 class="font-800">{{ page.header.title }}&nbsp;&nbsp;
+        {% if page.header.subtitle %}
+          <span class="font-600">
+            <em>
+              <small>[ {{page.header.subtitle}} ]</small>
+            </em>
+          </span>
+        {% endif %}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-9 portfolio-block">
+        <div class='macbook'>
+          <div class='screen'>
+            <div class='browser'>
+              <div class='toolbar'>
+                <div class='row_one'>
+                  <div class='dot'></div>
+                  <div class='dot'></div>
+                  <div class='dot'></div>
+                </div>
+                <div class='row_two'>
+                  <div class='nav'>
+                    <div class='prev'>&laquo;</div>
+                    <div class='next'>&raquo;</div>
+                  </div>
+                  <div class='search_bar'></div>
+                </div>
+              </div>
+              <div class='content'>
+                {% if header.project_main_img %}
+                  {% set slide = header.project_main_img | last %}
+                  <img src="{{ slide.path }}" {% if slides.project_slides_alt %} alt="{{slides.project_slides_alt}}" {% endif %} class="portfolio-page-carousel">
+                {% elseif page.header.videourl %}
+                  <iframe class='frame embed-responsive-item' height='100%' src="{{ page.header.videourl }}" width='100%'></iframe>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3 portfolio-block">
+        <div class="block-title">
+          <h3 class="font-600">PROJECT OVERVIEW</h3>
+        </div>
+        <ul class="project-general-info">
+          {% if page.header.clienturl %}
+            <li>
+              <p>
+                <i class="fa fa-globe"></i>
+                <a href="{{ page.header.clienturl }}" target="_blank">{{ page.header.clienturl }}</a>
+              </p>
+            </li>
+          {% endif %}
+          {% if page.header.projectdate %}
+            <li>
+              <p>
+                <i class="fa fa-calendar"></i>
+                {{ page.header.projectdate }}</p>
+            </li>
+          {% endif %}
+        </ul>
+        <p class="text-justify">{{ page.header.projectdescription }}</p>
+        <div class="tags-block">
+          <div class="block-title">
+            <h3 class="font-600">TAGS</h3>
+          </div>
+          {% if page.header.projectags %}
+            <ul class="tags">
+              {% for tag in page.header.projectags %}
+                <li>
+                  <a class="uppercase">{{ tag.name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,800|Shadows+Into+Light');
+
+body {
+  font-family:'Open Sans', sans-serif;'
+}
+h1, h2, h3, h4, h5, h6, .site-main-menu, .mobile-site-title, .form-control, .form-control:focus, .has-error .form-control, .has-error .form-control:focus {
+  font-family: inherit;
+}
+.font-600 {
+  font-weight:600;
+}
+.font-800 {
+  font-weight:800;
+}
+.mobile-site-title {
+  font-weight: 800;
+  font-size: 1.75em;
+}
+.pt-page-1 {
+  overflow: hidden;
+  max-height: 100%;
+}
+.home-page-block h2 {
+  text-transform: uppercase;
+  font-weight:800;
+}
+.home-page-description {
+  font-size:1.75em;
+  margin:1em auto;
+}
+.info-list li .title {
+  font-family: inherit;
+  font-weight:800;
+}
+.info-list li .title::after {
+  background-color:rgba(0,0,0,0) !important;
+}
+h5.section-description {
+  font-weight: 400;
+  font-size: 1em;
+  max-width: 75%;
+}
+.download-cv-block a.button {
+  float: right;
+  margin-top: -6em;
+  margin-right: 2%;
+  font-weight: 600;
+}
+.skill-percentage.skill-60 {
+  width: 60%;
+}
+.skill-percentage.skill-70 {
+  width: 70%;
+}
+.skill-percentage.skill-80 {
+  width: 80%;
+}
+.skill-percentage.skill-90 {
+  width: 90%;
+}
+.skill-percentage.skill-100 {
+  width: 100%;
+}
+.section-title-block .section-title {
+  text-transform: uppercase;
+}
+.mfp-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.25em;
+}
+.page-ajax-loaded {
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.97) 70%, rgba(185,204,204,0.95) 100%);
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.97) 70%,rgba(185,204,204,0.95) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0.97) 70%,rgba(185,204,204,0.95) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2b9cccc',GradientType=0 );
+}
+.portfolio-block p {
+  font-weight: 400;
+  font-size: .85em;
+}
+.profile-pic {
+  margin-bottom: -15em;
+  margin-top: -2em;
+}
+.custom-nav-wrap {
+  background:#fff;
+  position: relative;
+  padding-top: 0px;
+}
+.custom-nav-wrap .site-nav {
+  padding-top:0px;
+}
+.site-title-block {
+  margin: 20px 20px 20px;
+}
+.site-title {
+  padding-top: .5em;
+  text-transform: uppercase;
+  font-weight:800;
+}
+.portfolio-filters li a, .portfolio-filters li a:hover {
+  font-weight:600;
+}
+.portfolio-page-video {
+  border: 5px solid #33CCCC;
+  margin-top: 3.25em;
+}
+.portfolio-title h1 small {
+  text-transform: uppercase;
+}
+.portfolio-nav .portfolio-close-button a {
+  background-color: #FF0000;
+  color: #fff;
+}
+.tags li a {
+  padding:.75em;
+  margin: .5em;
+  line-height: 3em;
+  font-weight: 600;
+  color:#999;
+}
+.site-title-block .site-description {
+  font-weight: 300;
+  text-transform:uppercase;
+  font-size:1.1em;
+}
+.site-main-menu li a, .site-main-menu li a:hover {
+  text-transform:uppercase;
+  font-weight:600;
+}
+body::selection {
+  background: #33CCCC;
+}
+body::-moz-selection {
+  background: #33CCCC;
+}
+.uppercase {
+  text-transform:uppercase;
+}
+.testimonial-content .testimonial-text p {
+  font-weight:400;
+}
+.testimonial-author {
+  font-family:inherit;
+}
+.testimonials.owl-carousel .owl-nav .owl-prev::before {
+  font-family: 'Font Awesome\ 5 Free';
+  content:"\f0a8";
+  font-weight: 900;
+}
+.testimonials.owl-carousel .owl-nav .owl-next::before {
+  font-family: 'Font Awesome\ 5 Free';
+  content:"\f0a9";
+  font-weight: 900;
+}
+.macbook {
+  max-width:100%;
+}
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner {
+  position:fixed;
+  top:0px;
+  right:0px;
+}
+.github-corner p {
+  font-family: 'Shadows Into Light', cursive;
+  color: #fff;
+  font-size: 35px;
+  position: absolute;
+  left: -150px;
+  top: 10px;
+  line-height: 30px;
+}
+.mf-modal-iframe {
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+.swal2-container {
+  position:fixed;
+  z-index:99999 !important;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width:992px) {
+  .portfolio-title span {
+    width:100%;
+    float:left;
+  }
+}
+@media (max-width:748px) {
+  .macbook .screen {
+    height:auto;
+  }
+}
+@media (min-width:487px) and (max-width:748px) {
+  .macbook {
+    width:66%;
+  }
+}
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}

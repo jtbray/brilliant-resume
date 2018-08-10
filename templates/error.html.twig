@@ -1,0 +1,28 @@
+{% block stylesheets %}
+{% do assets.addCss('theme://css/bootstrap.css', 99) %}
+{% do assets.addCss('theme://css/normalize.css', 98) %}
+{% do assets.addCss('theme://css/404.css', 97) %}
+{% endblock %}
+{{ assets.css() }}{% block content %}
+<div class="error-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 content-wrapper center">
+        <img src="{{ url('theme://images/404-header.png') }}"/>
+      </div>
+    </div>
+    <div class="row btn-wrapper">
+      <a onclick="javascript:history.back();">
+        <div class="wrap back">
+          <button>Back</button>
+        </div>
+      </a>
+      <a href="{{home_url}}">
+        <div class="wrap home">
+          <button>Home</button>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
