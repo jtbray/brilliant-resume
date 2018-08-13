@@ -212,9 +212,9 @@ body::-moz-selection {
     height:auto;
   }
 }
-@media (min-width:487px) and (max-width:748px) {
-  .macbook {
-    width:66%;
+@media (max-width:575px) {
+  .mf-modal-iframe {
+    max-width:80%;
   }
 }
 @media (max-width:500px) {
@@ -223,5 +223,10 @@ body::-moz-selection {
   }
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@media (min-width:487px) and (max-width:748px) {
+  .macbook {
+    width:66%;
   }
 }

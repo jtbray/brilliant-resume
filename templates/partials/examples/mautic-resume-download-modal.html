@@ -1,5 +1,4 @@
-<!--  EDIT, COPY & PASTE INTO MAUTIC'S FOCUS ITEM BUILDER to COLLECT DATA in a MODAL -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 <style>
   html,
   body {
@@ -19,6 +18,7 @@
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
+    max-width: 100%;
   }
 
   .mf-modal .mf-modal-close a {
@@ -67,6 +67,8 @@
 
   .modal-subtitle {
     font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 2em;
   }
 
   .modal-footer {
@@ -80,23 +82,26 @@
   .modal-form {
     padding: 2em 0;
   }
+
+  .mauticform-innerform input {
+    margin-bottom: 1em !important;
+  }
+
+  .modal-footer img {
+    max-height: 1.5em;
+    margin: -.25em .25em 0 .25em;
+  }
 </style>
 <h1 class="modal-title text-center uppercase">Thanks for visiting</h1>
-<br />
 <h3 class="modal-subtitle">Type in your e-mail below to download a digital copy of my resume!</h3>
-<br />
-<br />
-<div class="modal-form">
+<div class="modal-form col-xs-12">
   {focus_form}
 </div>
-<br />
-<br />
-<p class="modal-footer uppercase" style="font-weight:600;">
+<p class="modal-footer uppercase col-xs-12" style="font-weight:600;">
   <em>Powered by</em>
-  <img src="https://www.ostraining.com/cdn/images/mautic/Mautic_Logo_LB.png" style="max-height:1.5em;margin:-.25em .25em 0 .25em;" />
+  <img src="https://jtbray.com/user/themes/brilliant-resume/images/mautic-logo.png" />
   <em>Mautic</em>
 </p>
-<!-- MAUTIC FOCUS ITEMS USE IFRAMES SO WE NEED TO PROPERLY HANDLE FORM SUBMISSION WE NEED TO POST A MESSAGE TO GRAV -->
 <script>
   if (typeof MauticFormCallback == 'undefined') {
     var MauticFormCallback = {};
@@ -115,28 +120,4 @@
     }
   };
   document.forms[0][0].focus();
-</script>
-<!-- BELOW GOES IN THE GRAV HOMEPAGE'S JAVASCRIPT SECTION (without the opening & closing script tags) -->
-<script>
-  // CATCH & HANDLE THE MESSAGE FROM THE MAUTIC IFRAME
-  window.addEventListener('message', function(e) {
-    if (e.data.event_id === 'dl_success') {
-      swal({
-        type: 'success',
-        timer: 5000,
-        title: 'Here it is!',
-        text: 'Now get back to browsing!'
-      }).then((result) => {
-        $('.mf-modal-iframe').remove();
-        $('.mf-modal-overlay').remove();
-      });
-    } else if (e.data.event_id === 'dl_fail') {
-      swal({
-        type: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
-        footer: 'Please re-enter your email'
-      });
-    }
-  });
 </script>
