@@ -217,6 +217,12 @@ body::-moz-selection {
     max-width:80%;
   }
 }
+@media (max-width:525px) {
+  .download-cv-block a.button {
+    float:none;
+    margin: 1em 0;
+  }
+}
 @media (max-width:500px) {
   .github-corner:hover .octo-arm {
     animation: none;
