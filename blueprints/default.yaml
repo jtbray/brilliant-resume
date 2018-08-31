@@ -47,6 +47,11 @@ form:
                   toggleable: true
                   type: text
                   label: Github Corner Badge Text
+                header.resume.general.onesignal:
+                  toggleable: true
+                  type: text
+                  label: OneSignal App ID
+                  help: enables push notifications for popular client platforms
                 header.resume.general.mautic:
                   type: fieldset
                   title: Mautic

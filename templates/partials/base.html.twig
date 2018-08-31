@@ -98,18 +98,18 @@
 {% do assets.addJs('theme://js/sweetalert2.all.js', {'priority': 86, 'group': 'bottom'}) %}
 {% do assets.addJs('theme://js/main.js', {'priority': 85, 'group': 'bottom'}) %}
 {% endblock %}
-{{ assets.js() }}
+{{ assets.js() }}{% if header.resume.general.onesignal %}
 <link rel="manifest" href="/manifest.json" />
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
   var OneSignal = window.OneSignal || [];
   OneSignal.push(function() {
     OneSignal.init({
-      appId: "903d3d9b-668e-4e2c-9e99-3a547e6aa5a7",
+      appId: "{{header.resume.general.onesignal}}",
     });
   });
 </script>
-{% endblock head %}
+{% endif %}{% endblock head %}
 </head>
 <body>
 {% include 'partials/preloader.html.twig' %}
