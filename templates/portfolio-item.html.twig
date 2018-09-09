@@ -23,6 +23,7 @@
         <div class='macbook'>
           <div class='screen'>
             <div class='browser'>
+              {% if page.header.showtoolbar %}
               <div class='toolbar'>
                 <div class='row_one'>
                   <div class='dot'></div>
@@ -37,7 +38,8 @@
                   <div class='search_bar'></div>
                 </div>
               </div>
-              <div class='content'>
+              {% endif %}
+              <div class='content' {% if page.header.showtoolbar %} style="height:90%;" {% else %} style="height:100%;" {% endif%} >
                 {% if header.project_main_img %}
                   {% set slide = header.project_main_img | last %}
                   <img src="{{ slide.path }}" {% if slides.project_slides_alt %} alt="{{slides.project_slides_alt}}" {% endif %} class="portfolio-page-carousel">

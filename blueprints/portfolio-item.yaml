@@ -76,6 +76,17 @@ form:
               toggleable: true
               type: text
               label: Project Thumbnail Alt Text
+            header.showtoolbar:
+              type: toggle
+              label: Show toolbar mockup
+              highlight: 1
+              help: Show toolbar mockup above portfolio main image/video
+              default: 0
+              options:
+                1: YES
+                0: NO
+              validate:
+                type: bool
             header.project_main_img:
               name: project_main_img
               type: file

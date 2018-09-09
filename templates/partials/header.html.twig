@@ -1,8 +1,8 @@
   <header id="site_header" class="header mobile-menu-hide">
 {% if header.resume.sidebar.profile_img %}{% for img in header.resume.sidebar.profile_img %}{% if header.resume.sidebar.profile_img_2 %}{% for img2 in header.resume.sidebar.profile_img_2 %}
       <div class="js-comparison-container" {% if header.resume.sidebar.profile_img_comp %}data-start-position="{{header.resume.sidebar.profile_img_comp}}"{% endif %}>
-        <img class="profile-pic comparison-image" src="{{ img.name }}" {% if header.resume.sidebar.profile_img_alt %} alt="{{header.resume.sidebar.profile_img_alt}}" {% endif %}>
-        <img class="profile-pic comparison-image" src="{{ img2.name }}" {% if header.resume.sidebar.profile_img_2_alt %} alt="{{header.resume.sidebar.profile_img_2_alt}}" {% endif %}>
+        <img class="profile-pics comparison-image" src="{{ img.name }}" {% if header.resume.sidebar.profile_img_alt %} alt="{{header.resume.sidebar.profile_img_alt}}" {% endif %}>
+        <img class="profile-pics comparison-image" src="{{ img2.name }}" {% if header.resume.sidebar.profile_img_2_alt %} alt="{{header.resume.sidebar.profile_img_2_alt}}" {% endif %}>
       </div>
 {% endfor %}{% else %}
     <img class="profile-pic" src="{{ img.name }}" alt="image">

@@ -53,13 +53,11 @@
                   </div>
                 </div>
 {% endif %}
-{% if header.resume.contact.form.html %}
+{% if header.resume.contact.info_title or header.resume.contact.info_subtitle or header.resume.home.email or header.resume.home.phone or header.resume.contact.info_address  %}
 {% else %}
                 <div class="contact-info-block">
                   <div class="ci-text">
-                    <h4 class="uppercase">Insert your form HTML in the Admin settings for this page.</h4>
-                    <p>Use the form on the right as a style example.</p>
-                    <h5><em>I recommend using Mautic to handle your submissions!</em></h5>
+                    <h4 class="uppercase">This section displays your contact info & a brief message once you update the associated fields in the admin area.</h4>
                   </div>
                 </div>
 {% endif %}
@@ -70,10 +68,14 @@
                   <h3>{{header.resume.contact.form.title}}</h3>
                 </div>
 {% endif %}
-{% if header.resume.contact.form.html %}
+{% if header.resume.contact.form.slug %}
+{% include "forms/form.html.twig" with { form: forms(''~ header.resume.contact.form.slug ~'') } %}
+{% elseif header.resume.contact.form.html %}
 {{ header.resume.contact.form.html }}
 {% else %}
-{% include "partials/demo-contact-form.html.twig" %}
+<h3>SETUP A GRAV FORM<br><strong>OR</strong><br>CUSTOM FORM HTML</h3>
+<p><a href="https://learn.getgrav.org/forms/forms/example-form" target="_blank">GRAV FORM REFERENCE</a></p>
+<p><a href="https://www.mautic.org/docs/en/forms/index.html" target="_blank">MAUTIC FORM REFERENCE</a></p>
 {% endif %}
               </div>
             </div>

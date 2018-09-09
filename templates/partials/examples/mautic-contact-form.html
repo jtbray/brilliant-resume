@@ -1,5 +1,5 @@
-<!--  UPDATE WITH YOUR OWN INFO & PASTE INTO THIS THEME'S "CONTACT FORM HTML" SECTION -->
-<form id="mauticform_contactform" class="contact-form" novalidate method="post" action="https://marketing.jtbray.com/form/submit?formId=1" data-mautic-form="contactform" enctype="multipart/form-data">
+<!--  FOR A MAUTIC FORM WITH SWEETALERT 2: UPDATE THE "UPDATE_THIS" SECTIONS WITH YOUR OWN MAUTIC FORM INFO & PASTE INTO THIS THEME'S "CONTACT FORM HTML" SECTION -->
+<form id="mauticform_contactform" class="contact-form" novalidate method="post" action="UPDATE_THIS" data-mautic-form="contactform" enctype="multipart/form-data">
   <div class="messages"></div>
   <div class="controls">
     <div class="col-xs-12 col-sm-6">
@@ -42,12 +42,12 @@
     var head = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://marketing.jtbray.com/media/js/mautic-form.js';
+    script.src = 'UPDATE_THIS';
     script.onload = function() {
       MauticSDK.onLoad();
     };
     head.appendChild(script);
-    var MauticDomain = 'https://marketing.jtbray.com';
+    var MauticDomain = 'UPDATE_THIS';
     var MauticLang = {
       'submittingMessage': "Please wait..."
     }
@@ -72,8 +72,9 @@
             reverseButtons: true
           }).then((result) => {
             if (result.value) {
-              openInNewTab('https://github.com/jtbray/brilliant-resume');
             } else if (result.dismiss === swal.DismissReason.cancel) {
+              // replace below with desired redirect location
+              openInNewTab('UPDATE_THIS');
               openInNewTab('https://imgur.com');
             }
           });

@@ -80,7 +80,7 @@ h5.section-description {
   font-weight: 400;
   font-size: .85em;
 }
-.profile-pic {
+.profile-pics {
   margin-bottom: -15em;
   margin-top: -2em;
 }
@@ -113,6 +113,12 @@ h5.section-description {
 .portfolio-nav .portfolio-close-button a {
   background-color: #FF0000;
   color: #fff;
+}
+.portfolio-page-content img {
+  height:100%;
+}
+.portfolio-page-video, .portfolio-page-carousel, .portfolio-page-image {
+  margin-bottom:0px;
 }
 .tags li a {
   padding:.75em;
@@ -187,6 +193,17 @@ body::-moz-selection {
   position:fixed;
   z-index:99999 !important;
 }
+.form-control-border {
+  margin-left:15px;
+  margin-right:15px;
+}
+.form-group i {
+  margin-right:.75em;
+}
+input[type="checkbox"]{
+  width:auto;
+  margin: .5em 1em 0 1em;
+}
 @keyframes octocat-wave {
   0%,
   100% {
@@ -209,10 +226,16 @@ body::-moz-selection {
 }
 @media (max-width:748px) {
   .macbook .screen {
-    height:auto;
+    height: 368px;
+  }
+  .macbook .screen .content {
+    margin-bottom: -6px;
   }
 }
 @media (max-width:575px) {
+  .macbook .screen {
+    height: auto;
+  }
   .mf-modal-iframe {
     max-width:80%;
   }

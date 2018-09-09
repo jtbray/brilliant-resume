@@ -539,6 +539,11 @@ form:
                   toggleable: true
                   type: text
                   label: Form Title
+                header.resume.contact.form.slug:
+                  toggleable: true
+                  type: text
+                  label: Contact Form Slug
+                  help: Display a Grav Form as the contact form (ie. contact-form)
                 header.resume.contact.form.html:
                   type: editor
                   label: Form HTML
