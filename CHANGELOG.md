@@ -1,3 +1,8 @@
+# v1.0.3
+## 09/25/2018
+1. [](#bugfix)
+    * Added markdown filter to templates to properly display editor md syntax
+
 # v1.0.2
 ## 09/08/2018
 1. [](#new)
