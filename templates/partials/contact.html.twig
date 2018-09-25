@@ -71,7 +71,7 @@
 {% if header.resume.contact.form.slug %}
 {% include "forms/form.html.twig" with { form: forms(''~ header.resume.contact.form.slug ~'') } %}
 {% elseif header.resume.contact.form.html %}
-{{ header.resume.contact.form.html }}
+{{ header.resume.contact.form.html|markdown }}
 {% else %}
 <h3>SETUP A GRAV FORM<br><strong>OR</strong><br>CUSTOM FORM HTML</h3>
 <p><a href="https://learn.getgrav.org/forms/forms/example-form" target="_blank">GRAV FORM REFERENCE</a></p>

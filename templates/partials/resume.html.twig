@@ -36,7 +36,7 @@
                     <h5 class="event-date">{{job.date}}</h5>
                     <h4 class="event-name">{{job.company}}</h4>
                     <span class="event-description">{{job.title}}</span>
-                    {{job.description}}
+                    {{job.description|markdown}}
                   </div>
 {% endfor %}
                 </div>
@@ -70,7 +70,7 @@
                     <h5 class="event-date">{{school.date}}</h5>
                     <h4 class="event-name">{{school.name}}</h4>
                     <span class="event-description">{{school.degree}}</span>
-                    {{school.description}}
+                    {{school.description|markdown}}
                   </div>
 {% endfor %}
                 </div>

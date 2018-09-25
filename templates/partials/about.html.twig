@@ -18,7 +18,7 @@
 {% if header.resume.about.general_header %}
                   <h3>{{header.resume.about.general_header}}</h3>
 {% endif %}{% if header.resume.about.general_info %}
-                  <p>{{ header.resume.about.general_info }}</p>
+                  <p>{{ header.resume.about.general_info|markdown }}</p>
 {% endif %}
                 </div>
               </div>
