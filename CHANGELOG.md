@@ -1,3 +1,9 @@
+# v1.0.5
+## 09/27/2018
+1. [](#bugfix)
+    * allow for any amount of skill groupings. closed: [issue #6](https://github.com/jtbray/brilliant-resume/issues/6)
+    * responsive support for any amount of expertise skills on about page. closed: [issue #7](https://github.com/jtbray/brilliant-resume/issues/7)
+
 # v1.0.4
 ## 09/25/2018
 1. [](#bugfix)
