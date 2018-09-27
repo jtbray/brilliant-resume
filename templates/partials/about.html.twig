@@ -64,17 +64,23 @@
             </div>
 {% endif %}
             <div class="row">
-{% if header.resume.skills %}
-{% set s = header.resume.skills | length %}
-{% for skill in header.resume.skills %}
+{% if header.resume.expertise.skills %}
+{% set s = header.resume.expertise.skills | length %}
+{% for skill in header.resume.expertise.skills %}
 {% if s == 1 %}
               <div class="col-xs-12 subpage-block">
-{% elseif s == 2 %}
+{% elseif (s is divisible by(2)) and (s != 6) %}
               <div class="col-sm-6 col-md-6 subpage-block">
-{% elseif s == 3 %}
+{% elseif s is divisible by(3) %}
               <div class="col-sm-6 col-md-4 subpage-block">
-{% elseif s == 4 %}
+{% elseif s is divisible by(4) %}
               <div class="col-sm-6 col-md-6 col-lg-3 subpage-block">
+{% elseif s is divisible by(5) %}
+              <div class="col-xs-12 col-md-2 subpage-block {% if (loop.first) or (loop.index is divisible by(6)) %}col-md-offset-1{% endif %}">
+{% elseif s is divisible by(7) %}
+              <div class="col-xs-12 {% if loop.index <= 3 %}col-md-4{% else %}col-md-3{% endif %} subpage-block">
+{% elseif s is divisible by(11) %}
+              <div class="col-xs-12 {% if loop.index <= 8 %}col-md-3{% else %}col-md-4{% endif %} subpage-block">
 {% endif %}
                 <div class="service-block">
                   <div class="service-info">
@@ -85,6 +91,7 @@
                     <p>{{skill.description}}</p>
                   </div>
                 </div>
+              </div>
 {% endfor %}
 {% endif %}
             </div>

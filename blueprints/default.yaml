@@ -319,7 +319,7 @@ form:
                         type: text
                         label: Section Title
                         placeholder: Expertise
-                      header.resume.skills:
+                      header.resume.expertise.skills:
                         name: skills
                         type: list
                         style: vertical
