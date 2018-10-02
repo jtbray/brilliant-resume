@@ -26,6 +26,9 @@
 *.sql
 *.sqlite
 
+# IDEs
+.idea/
+
 # OS generated files #
 ######################
 .DS_Store
