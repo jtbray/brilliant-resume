@@ -63,7 +63,7 @@ form:
                       toggleable: true
                       type: text
                       label: Base URL
-                      help: inserts mtc.js tracking code (no trailing slash) ex: https://mautic.example.com
+                      help: inserts mtc.js tracking code (no trailing slash) example https://mautic.example.com
                     header.resume.general.mautic_focus_header:
                           type: section
                           title: Focus Items
