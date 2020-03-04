@@ -207,6 +207,10 @@ form:
                       toggleable: true
                       type: text
                       label: Github
+                    header.resume.sidebar.social.xing:
+                      toggleable: true
+                      type: text
+                      label: Xing
 
             header.resume.home:
               type: fieldset
