@@ -42,7 +42,7 @@ form:
               toggleable: true
               type: text
               label: Hover Icon
-              help: Font Awesome Icons ex: fa-spoon
+              help: Font Awesome Icons example "fa-spoon"
             header.clienturl:
               toggleable: true
               type: text

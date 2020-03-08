@@ -20,7 +20,7 @@
           <ul id="nav" class="site-main-menu">
 {% if header.resume.sidebar.nav.home %}
             <li>
-              <a class="pt-trigger" href="#home" data-animation="58" data-goto="1">{{header.resume.sidebar.nav.home}}</a>
+              <a class="pt-trigger" href="#{{header.resume.sidebar.nav.home|replace({' ': '-'})|url_encode}}" data-animation="58" data-goto="1">{{header.resume.sidebar.nav.home}}</a>
             </li>
 {% else %}
             <li>
@@ -28,7 +28,7 @@
             </li>
 {% endif %}{% if header.resume.sidebar.nav.about %}
             <li>
-              <a class="pt-trigger" href="#about_me" data-animation="59" data-goto="2">{{header.resume.sidebar.nav.about}}</a>
+              <a class="pt-trigger" href="#{{header.resume.sidebar.nav.about|replace({' ': '-'})|url_encode}}" data-animation="59" data-goto="2">{{header.resume.sidebar.nav.about}}</a>
             </li>
 {% else %}
             <li>
@@ -36,7 +36,7 @@
             </li>
 {% endif %}{% if header.resume.sidebar.nav.resume %}
             <li>
-              <a class="pt-trigger" href="#resume" data-animation="60" data-goto="3">{{header.resume.sidebar.nav.resume}}</a>
+              <a class="pt-trigger" href="#{{header.resume.sidebar.nav.resume|replace({' ': '-'})|url_encode}}" data-animation="60" data-goto="3">{{header.resume.sidebar.nav.resume}}</a>
             </li>
 {% else %}
             <li>
@@ -44,7 +44,7 @@
             </li>
 {% endif %}{% if header.resume.sidebar.nav.portfolio %}
             <li>
-              <a class="pt-trigger" href="#portfolio" data-animation="61" data-goto="4">{{header.resume.sidebar.nav.portfolio}}</a>
+              <a class="pt-trigger" href="#{{header.resume.sidebar.nav.portfolio|replace({' ': '-'})|url_encode}}" data-animation="61" data-goto="4">{{header.resume.sidebar.nav.portfolio}}</a>
             </li>
 {% else %}
             <li>
@@ -52,7 +52,7 @@
             </li>
 {% endif %}{% if header.resume.sidebar.nav.contact %}
             <li>
-              <a class="pt-trigger" href="#contact" data-animation="59" data-goto="5">{{header.resume.sidebar.nav.contact}}</a>
+              <a class="pt-trigger" href="#{{header.resume.sidebar.nav.contact|replace({' ': '-'})|url_encode}}" data-animation="59" data-goto="5">{{header.resume.sidebar.nav.contact}}</a>
             </li>
 {% else %}
             <li>
@@ -122,6 +122,13 @@
             <li>
               <a class="tip social-button" href="{{header.resume.sidebar.social.github}}" title="Github" target="_blank">
                 <i class="fab fa-github"></i>
+              </a>
+            </li>
+{% endif %}
+{% if header.resume.sidebar.social.xing %}
+            <li>
+              <a class="tip social-button" href="{{header.resume.sidebar.social.xing}}" title="Xing" target="_blank">
+                <i class="fab fa-xing"></i>
               </a>
             </li>
 {% endif %}
